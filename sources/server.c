@@ -6,7 +6,7 @@
 /*   By: leaugust <leaugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:52:05 by leaugust          #+#    #+#             */
-/*   Updated: 2024/11/19 14:16:43 by leaugust         ###   ########.fr       */
+/*   Updated: 2024/11/21 17:54:41 by leaugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	signal_thing(int signum, siginfo_t *info, void *context)
 	static int		pid;
 	static int		i;
 	static char		c;
-	static t_list	*message;
+	static t_list	*msg;
 
 	(void)context;
 	if (pid == 0)
@@ -60,11 +60,11 @@ void	signal_thing(int signum, siginfo_t *info, void *context)
 		{
 			kill(pid, SIGUSR1);
 			pid = 0;
-			print_list(&message);
-			free_all(&message);
+			print_list(&msg);
+			free_all(&msg);
 			return ;
 		}
-		if (!(make_message(&message, c)))
+		if (!(make_message(&msg, c)))
 			return ;
 		c = 0;
 	}

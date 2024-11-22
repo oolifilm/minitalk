@@ -6,7 +6,7 @@
 /*   By: leaugust <leaugust@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:52:13 by leaugust          #+#    #+#             */
-/*   Updated: 2024/11/12 15:52:15 by leaugust         ###   ########.fr       */
+/*   Updated: 2024/11/21 21:18:50 by leaugust         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int argc, char **argv)
 	if (argc > 3)
 		return (ft_printf("You cannot send more than 1 message once !\n"), 0);
 	pid = (ft_atoi(argv[1]));
-	if (pid < 0)
+	if (pid <= 0)
 		return (ft_printf("Wrong PID\n"), 0);
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_RESTART;
